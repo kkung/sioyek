@@ -152,7 +152,6 @@ input_handler(input_handler)
 	pdf_renderer = new PdfRenderer(4, should_quit_ptr, mupdf_context);
 	pdf_renderer->start_threads();
 
-
 	main_document_view = new DocumentView(mupdf_context, db, document_manager, config_manager);
 	opengl_widget = new PdfViewOpenGLWidget(main_document_view, pdf_renderer, config_manager, this);
 

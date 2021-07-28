@@ -78,6 +78,10 @@
 #define MAX_PATH PATH_MAX
 #endif
 
+#ifdef __APPLE__
+#include <QSurfaceFormat>
+#endif
+
 
 extern float BACKGROUND_COLOR[3] = { 1.0f, 1.0f, 1.0f };
 extern float DARK_MODE_BACKGROUND_COLOR[3] = { 0.0f, 0.0f, 0.0f };
@@ -178,9 +182,16 @@ void unlock_mutex(void* user, int lock) {
 
 
 int main(int argc, char* args[]) {
+#ifdef __APPLE__
+    QSurfaceFormat format;
+    format.setVersion(3, 3);
+    format.setProfile(QSurfaceFormat::CoreProfile);
 
-	QCoreApplication::setAttribute(Qt::AA_ShareOpenGLContexts, true);
-	QApplication app(argc, args);
+    QSurfaceFormat::setDefaultFormat(format);
+#endif
+
+    QCoreApplication::setAttribute(Qt::AA_ShareOpenGLContexts, true);
+    QApplication app(argc, args);
 
 
 	configure_paths();

@@ -85,3 +85,15 @@ unix{
         resources/sioyek-icon-linux.png
 }
 
+mac {
+  CONFIG+=sdk_no_version_check
+
+  QMAKE_CC = clang
+  QMAKE_CXX = clang++
+
+  QMAKE_MACOSX_DEPLOYMENT_TARGET = 10.15
+  CONFIG+=link_pkgconfig
+  PKGCONFIG += harfbuzz
+
+  ICON = pdf_viewer\icon2.ico
+}

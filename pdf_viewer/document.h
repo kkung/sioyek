@@ -19,6 +19,10 @@
 #include "utils.h"
 #include "book.h"
 
+#ifdef __APPLE__
+  #include <unordered_map>
+#endif
+
 class Document {
 
 private:
